@@ -2,7 +2,8 @@
 
 
 
-
+![image]
+https://github.com/xmnyl/interval-typing/blob/master/%E9%97%B4%E9%9A%94%E6%89%93%E5%AD%97.gif
 
 
 
