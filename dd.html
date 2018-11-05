@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="divTyping" ref="divTyping" ></div>
+        <!--<div> {{ a }}</div>-->
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            str : '改变固然很难,但结果值得冒险!',
+            i:0,
+            a:'',
+            isShow:false
+        },
+        mounted(){
+            this.typing();
+            // this.typing1()
+        },
+        methods:{
+            typing(){
+                let that = this;
+                // console.log(this.$refs.divTyping);
+                // $refs只会在组件渲染完成之后才会生效.
+                let divTyping = this.$refs.divTyping;
+                setTimeout(() => {
+                    if(this.i <= this.str.length){
+                        divTyping.innerHTML = this.str.slice(0, this.i++) + '_';
+                        that.typing();
+                    }else{
+                        divTyping.innerHTML = this.str;
+                    }
+                },600)
+            },
+            // typing1(){
+            //   let that = this;
+            //   setTimeout(() => {
+            //     if(this.i <= this.str.length){
+            //       this.a = this.str.slice(0, this.i++) + '_';
+            //       that.typing1();
+            //     }else{
+            //       this.a = this.str;
+            //       this.isShow = !this.isShow;
+            //     }
+            //   },600)
+            // }
+        }
+    })
+</script>
+<style scope>
+        body{
+            background: #0096dd;
+            color:white;
+        }
+        #divTyping{
+            margin: 100px 200px;
+        }
+</style>
+</html>
